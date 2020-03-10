@@ -51,20 +51,16 @@ public class GrandExchangeInputListener extends MouseAdapter implements KeyListe
 	public MouseEvent mouseClicked(MouseEvent e)
 	{
 		// Check if left click + alt
-		if (e.getButton() == MouseEvent.BUTTON1 && e.isAltDown())
-		{
+		if (e.getButton() == MouseEvent.BUTTON1 && e.isAltDown()) {
 			final MenuEntry[] menuEntries = client.getMenuEntries();
-			for (final MenuEntry menuEntry : menuEntries)
-			{
-				if (menuEntry.getOption().equals(SEARCH_GRAND_EXCHANGE))
-				{
+			for (final MenuEntry menuEntry : menuEntries) {
+				if (menuEntry.getOption().equals(SEARCH_GRAND_EXCHANGE)) {
 					search(Text.removeTags(menuEntry.getTarget()));
 					e.consume();
 					break;
 				}
 			}
 		}
-
 		return super.mouseClicked(e);
 	}
 
