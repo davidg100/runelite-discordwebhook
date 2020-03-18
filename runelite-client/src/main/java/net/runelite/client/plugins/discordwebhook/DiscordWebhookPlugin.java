@@ -85,7 +85,7 @@ public class DiscordWebhookPlugin extends Plugin {
     protected void startUp()
     {
         discordInit();
-        //mouseMgr.registerMouseListener(wtListener);
+        mouseMgr.registerMouseListener(wtListener);
     }
 
     @Override
@@ -111,12 +111,15 @@ public class DiscordWebhookPlugin extends Plugin {
         }
     }
 
-    @Subscribe
-    public void onMenuOptionClicked(MenuOptionClicked click) {
-        if(click.getMenuAction().equals("Open") && click.getMenuTarget().equalsIgnoreCase("supply crate")) {
-            eventType = "Wintertodt";
-        }
-    }
+//    @Subscribe
+//    public void onMenuOptionClicked(MenuOptionClicked click) {
+//        System.out.println(Text.removeTags(click.getMenuOption()) + " " + Text.removeTags(click.getMenuTarget()));
+//        if(Text.removeTags(click.getMenuOption().toString()).equalsIgnoreCase("open")
+//                && Text.removeTags(click.getMenuTarget()).equalsIgnoreCase("supply crate")) {
+//            eventType = "Wintertodt";
+//        }
+//        System.out.println("ET check after onmenuoptionclicked" + eventType);
+//    }
 
     // handle a pet message
     // not tested eventTypes correctly assigning
@@ -131,7 +134,6 @@ public class DiscordWebhookPlugin extends Plugin {
             eventType = "Wintertodt";
             wtListener.listenerEventType = "";
         }
-        //System.out.println("et after checking wtl: " + eventType);
 
         final Matcher lookKc = BOSS_KILL.matcher(Text.removeTags(message));
         if(lookKc.find()) {
